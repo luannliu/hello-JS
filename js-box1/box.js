@@ -2,6 +2,7 @@
 var startBtn = document.getElementById('startBtn'),
     endBtn = document.getElementById('endBtn');
     box = document.getElementsByClassName('box');
+//定义全局变量
 var time;
 //随机选取三个颜色
 function colors() {
@@ -12,8 +13,9 @@ function colors() {
     rgb = 'rgb('+r+','+g+','+b+')';
     return rgb;
 }
-//随机抽取三个div
+//定义开始按钮点击后的函数
 function begin() {
+    //随机抽取三个div
     while(first == second || second == third || first == third){
         var first = Math.floor(Math.random()*box.length);
         var second = Math.floor(Math.random()*box.length);
@@ -30,7 +32,9 @@ function begin() {
         console.log(firstColor,secondColor,thirdColor);
     }
 }
+//点击按钮开始
 startBtn.onclick = function(){
+    //定义间歇循环
     time = setInterval(function(){
         //每次获取随机颜色后恢复默认颜色
         for(var i = 0; i <  box.length; i++){
@@ -49,6 +53,7 @@ endBtn.onclick = function(){
     for(var i = 0; i <  box.length; i++){
         box[i].style.backgroundColor = '';
     }
+    clearInterval(time);
     //启用开始按钮
     document.getElementsByTagName("button")[0].disabled=false;
 }

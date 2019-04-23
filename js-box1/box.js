@@ -43,6 +43,7 @@ startBtn.onclick = function(){
         //开始闪事件。
         begin();
     }
+    //定义间歇时间
     ,1000);
     //禁用开始按钮
     document.getElementsByTagName("button")[0].disabled=true;
@@ -53,6 +54,7 @@ endBtn.onclick = function(){
     for(var i = 0; i <  box.length; i++){
         box[i].style.backgroundColor = '';
     }
+    //清除间歇循环
     clearInterval(time);
     //启用开始按钮
     document.getElementsByTagName("button")[0].disabled=false;

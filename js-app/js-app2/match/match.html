@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>玩家匹配</title>
+    <link rel="stylesheet" href="match.css" type="text/css">
+</head>
+<body>
+    <header class="name">
+        <button id="back" ></button>
+        <span>参数设置</span>
+        <button class="help"><img src="../img/match/help.png" alt=""></button>
+    </header>
+    <main>
+        <div class="main-content">
+            <div class="m-c-left">
+                <p>玩<br>家<br>匹<br>配</p>
+            </div>
+            <div class="m-c-right">
+                <ul class="m-c-r-top">
+                    <li class="li-1">杀&ensp;手<span id="numberone">2</span>人</li>
+                    <li class="li-2">平&ensp;民<span id="numbertwo">2</span>人</li>
+                </ul>
+                <div class="m-c-r-bottom">
+                     <span>点击设置<img src="../img/match/pencil.png" alt=""></span>
+                </div>
+            </div>
+        </div>
+        <div class="main-setting">
+            <div class="m-s-word">
+            </div>
+            <div class="m-s-number">
+                <p>请输入玩家数量<input id="number" type="text" value="18" maxlength="2" required="required"><span>玩家数量为4-18</span></p>
+                <!-- <div class="range">
+                    <button class="button-sub"></button>
+                    <input type="range">
+                    <button class="button-add"></button>
+                </div> -->
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button>去发牌</button>
+    </footer>
+</body>
+</html>

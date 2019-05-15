@@ -1,0 +1,94 @@
+html{
+    font-size: 62.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #f0f0f0;
+}
+body{
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    height: 100%;
+    padding: 0.5rem 2rem;
+}
+span{
+    display: inline-block;
+}
+
+@mixin flex($direction:row , $justify:center ,$align:center ) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin display {
+    display: inline-block;
+}
+@mixin row {
+    width: 100%;
+    height: 5rem;
+}
+$haeder-height:4.4rem;
+$border: 1px solid;
+
+
+#sidemenu{
+    &:checked + aside{ 
+        /*点击按钮即选中checked后,侧边栏位置变为贴着左边,配合ease-out使用,有渐变滑出的效果*/
+        position: absolute;
+        left: 0;}
+    &:checked ~ #wrap {
+        /*为被选中的sidemenu后的wrap设置属性*/
+        padding-left: 70%;
+    }
+}
+aside {
+    /*侧边栏,初始位置为-70%；，即隐藏效果*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -70%;
+    width: 70%;
+    background: #ffffff;
+    transition: 0.2s ease-out;
+    /*动画效果的执行方式是ease-out，即侧边栏滑动效果为渐变式，而不是生硬的突然变化*/
+    #sideul {
+        position: absolute;
+        top: 4.4rem;
+        width: 100%;
+        @include flex(column,space-between,center);
+        a {
+            width: 100%;
+            text-decoration: none;
+            @include flex(row,space-between,center);
+            border-bottom: $border #eaeaea;
+            li {
+                list-style: none;
+                color: #69d1e9;
+                width: 100%;
+                height: 4.4rem;
+                line-height: 4.4rem;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+#wrap {/*设置主页面为100%宽度，并渐出动画及多余隐藏*/
+    width: 100%;
+    transition: 0.2s ease-out;
+    overflow: hidden;
+}

@@ -1,0 +1,217 @@
+
+
+@mixin flex($direction:row , $justify:center ,$align:center ) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin display {
+    display: inline-block;
+}
+@mixin row {
+    width: 100%;
+    height: 5rem;
+}
+$haeder-height:4.4rem;
+$border: 1px solid;
+
+html{
+    font-size: 62.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #f0f0f0;
+}
+body{
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    height: 100%;
+    padding: 0.5rem 2rem;
+}
+span{
+    display: inline-block;
+}
+#sidemenu{
+    &:checked + aside{ 
+        /*点击按钮即选中checked后,侧边栏位置变为贴着左边,配合ease-out使用,有渐变滑出的效果*/
+        position: absolute;
+        left: 0;}
+    &:checked ~ #wrap {
+        /*为被选中的sidemenu后的wrap设置属性*/
+        padding-left: 70%;
+    }
+}
+aside {
+    /*侧边栏,初始位置为-70%；，即隐藏效果*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -70%;
+    width: 70%;
+    background: #ffffff;
+    transition: 0.2s ease-out;
+    /*动画效果的执行方式是ease-out，即侧边栏滑动效果为渐变式，而不是生硬的突然变化*/
+    #sideul {
+        position: absolute;
+        top: 4.4rem;
+        width: 100%;
+        @include flex(column,space-between,center);
+        a {
+            width: 100%;
+            text-decoration: none;
+            @include flex(row,space-between,center);
+            border-bottom: $border #eaeaea;
+            li {
+                list-style: none;
+                color: #69d1e9;
+                width: 100%;
+                height: 4.4rem;
+                line-height: 4.4rem;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+#wrap {/*设置主页面为100%宽度，并渐出动画及多余隐藏*/
+    width: 100%;
+    transition: 0.2s ease-out;
+    overflow: hidden;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: $haeder-height;
+    text-align: center;
+    font-weight: 100;
+    line-height: $haeder-height;
+    background: #29bde0;
+    label{
+        position: absolute;
+        margin: 2rem auto 1rem 1.1rem;
+        @include flex();
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    label span{ 
+        margin-bottom: 0.3rem;
+        width: 1.75rem;
+        height: 2.5px;
+        z-index: 4;
+        background: #ffffff;
+    }
+}
+
+main{
+    margin: $haeder-height 1.8rem 3rem 1.8rem ;
+    .last-game{
+        position: relative;
+        display:inline-block;
+        margin-bottom: 1.3rem;
+        height: 10.6vh;
+        width: 100%;
+        font-size: 1.8rem;
+        color: #9a9a9a;
+        line-height: 10.6vh;
+        background: #ffffff;
+        text-align: center;
+        border: $border #c9c9c9;
+        button{
+            position: absolute;
+            top: 3.5vh;
+            right: 0rem;
+            border-style: solid;
+            border-width: 13px 13px 13px 13px;
+            border-color: transparent transparent transparent #e7e7e7 ;
+            width: 0px;
+            height: 0px;
+            &::after{
+                content: "";
+                position: absolute;
+                top: -8.5px;
+                left: -13px;
+                border-style: solid;
+                border-width: 8px 8px 8px 8px;
+                border-color: transparent transparent transparent #ffffff ;
+                width: 0px;
+                height: 0px;
+           }
+        }
+    }
+    .game{
+        position: relative;
+        color: #9a9a9a;
+        background: #ffffff;
+        text-align: center;
+        border: $border #c9c9c9;
+        .game-title{
+            height: 8.2vh;
+            line-height: 8.2vh;
+            font-size: 2.1rem;
+            color: #fbb435;
+            border-bottom: 1.2px solid #fde1ae;
+        }
+        .game-content{
+            padding: 2.7vw 4.5vw 2.5vw 4.8vw;
+            .game-box{
+                .game-name{
+                    display: inline-block;
+                    height: 12.2vh;
+                    width: 100%;
+                    margin-top: 1.5rem;
+                    margin-bottom: 1.4rem;
+                    font-size: 1.9rem;
+                    line-height: 12.2vh;
+                    font-weight: 100;
+                    color: #ffffff;
+                    background: #69d1e9;
+                }
+                p{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        .round{
+            margin-bottom: 0.3rem;
+            .round1{
+                background: #69d1e9;
+            }
+            button{
+                height: 0.9rem;
+                width: 0.9rem;
+                background: #f0f0f0;
+                border-radius: 50%;
+                &:hover, &:focus, &:active{
+                    background: #69d1e9;
+                }
+            }
+        }
+    }
+    .next{
+        position: absolute;
+        top: calc(50% +  calc(1.3rem / 8));
+        right: .6rem;
+        border-style: solid;
+        border-width:   1.3rem 0 1.3rem 1.3rem;
+        border-color: transparent transparent transparent #fbb435 ;
+        width: 0px;
+        height: 0px;
+    }
+}

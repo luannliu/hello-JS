@@ -4,226 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>投票</title>
-    <link rel="stylesheet" href="vote.css" type="text/css">
+    <title>开始游戏</title>
+    <link rel="stylesheet" href="../scss/vote.css" type="text/css">
 </head>
 <body>
     <header>
-        <a class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </a>
-        <p>投票</p>
-        <a class="close" >
-            <div class="false"></div>
-        </a>
+        <button id="back"></button>
+        <p id="header-title"></p>
+        <button id="close"></button>
     </header>
     <main>
         <div class="main-title">
-            <p>发言讨论结束，大家请投票</p>
-            <audio src="财富自由.mp3" controls="controls" autoplay= "autoplay">
+            <p></p>
+            <audio src="../财富自由.mp3" controls="controls" autoplay= "autoplay">
                 Your browser does not support the audio element.
             </audio>
             <button>
-                <img src="../img/img2/audio.png" alt="">
+                <img src="../img/vote/audio.png" alt="">
             </button>
         </div>
-        <p class="main-tip">点击得票数最多人的头像</p>
-        <div class="main-content">
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
+        <p class="main-tip"></p>
+        <div class="main-content-box">
+            <div class="main-content">
+                <div  class="item">
+                        <p class="identity">水 民</p>
+                        <p class="number">1 号</p>
+                    <div class="content-hover">
+                        <img src="../img/vote/hunter.png" alt="">
+                        <!-- <img src="../img/vote/check.png" alt="">
+                        <img src="../img/vote/kill.png" alt="">
+                        <img src="../img/vote/cure.png" alt=""> -->
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="main-content">
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
-            <div class="content-box">
-                <div class="content-photo">
-                    <p>水 民</p>
-                    <p>1 号</p>
-                </div>
-                <div class="content-hover">
-                    <img src="../img/img2/hunter.png" alt="">
-                    <img src="../img/img2/check.png" alt="">
-                    <img src="../img/img2/kill.png" alt="">
-                    <img src="../img/img2/cure.png" alt="">
-                </div>
-            </div>
         </div>
     </main>
     <footer>
         <span></span>
-        <a href="../app3/app3.html">投死</a>
+        <a id="start"></a>
     </footer>
+    <script src="../../jquery-3.4.1.js"></script>
+    <script src="../js/vote.js"></script>
 </body>
 </html>

@@ -1,5 +1,11 @@
 html{
     font-size: 62.5%;
+    background: #f0f0f0;
+}
+body,header,main,footer{
+    max-width: 768px;
+    min-width: 320px;
+    margin: 0 auto;
     background: #29bde0;
 }
 *{
@@ -23,81 +29,88 @@ a{
     text-decoration: none;
 }
 
-@mixin flex {
+@mixin flex($justify,$align) {
     display: flex;
-    align-items: center;
+    justify-content: $justify;
+    align-items: $align;
+  } 
+@mixin flex-c($justify,$align) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    align-items: $align;
+  }
+@mixin bg($width,$height,$url) {
+    width: $width;
+    height: $height;
+    background: $url no-repeat center;
 }
-@mixin display {
-    display: inline-block;
+@mixin img($zoom,$margin) {
+    margin: $margin;
+    zoom: $zoom;
 }
-@mixin row {
-    width: 100%;
-    height: 5rem;
+@mixin position($position,$side,$sidevalue) {
+    position: $position;
+    #{$side}: $sidevalue;
+  }
+@mixin font($fz,$cl,$lh,$fw){
+    font-size: $fz;
+    color: $cl;
+    line-height: $lh;
+    font-weight: $fw;
+  }
+@mixin box($width,$height,$bg,$radius){
+    width: $width;
+    height: $height;
+    background-color: $bg;
+    border-radius: $radius; 
 }
 $haeder-height:4.4rem;
-$border: 1.1px solid #ffffff;
-      
+$border: 1.1px solid #ffffff;      
 
 header{
-    position: fixed;
-    top: 0;
+    @include box(100%,$haeder-height,inherit,0);
+    @include position(fixed,top ,0);
+    @include flex(space-between,center);
+    @include font(1.5rem,#ffffff,4.4rem,400);
     z-index: 2;
-    width: 100%;
-    height: $haeder-height;
-    text-align: center;
-    color: #ffffff;
     background: #29bde0;
-    font-size: 1.7rem;
-    font-weight: 100;
-    line-height: $haeder-height;
-    .menu{
-        height: 1.8rem;
-        width: 1.8rem;
-        position: absolute;
-        top: 1.3rem;
-        left: 0.8rem;
-        display: inline-block;
-        border: $border;
-        @include flex();
-        flex-direction: column;
-        justify-content: space-evenly;
-        span{
-            display: inline-block;
-            width: 1.5rem;
-            border-bottom: $border;
-        }
+    border-bottom: $border #74d4eb;
+    #back{
+        @include box(1.2rem,1.2rem,inherit,0);
+        border-top: 0.2rem solid #fff;
+        border-left: 0.2rem solid #fff;    
+        transform: rotate(-45deg);
+        margin-left: 1.1rem;
     }
     p{
         margin-top: 0.5rem;
     }
-    .close{
-        position: absolute;
-        top: 0;
-        right: 0.8rem;
-        .false{
-            display: inline-block;
-            width: 2.5rem;
-            height: 1.2px;
+    #close{
+        display: inline-block;
+        margin-right: 1rem;
+        width: 20px;
+        height: 2px;
+        background: #ffffff;
+        line-height: 0;
+        font-size: 0;
+        vertical-align: middle;
+        -webkit-transform: rotate(45deg);
+        &::after{
+            content: "";
+            display: block;
+            width: 20px;
+            height: 2px;
             background: #ffffff;
-            line-height: 0;
-            font-size: 0;
-            vertical-align: middle;
-            -webkit-transform: rotate(45deg);
-            &::after{
-                content: '/';
-                display: block;
-                width: 2.5rem;
-                height: 1.2px;
-                background: #ffffff;
-                -webkit-transform: rotate(-90deg);
-            }  
+            -webkit-transform: rotate(-90deg);
         }
     }
 }
 
 main{
     margin-top: $haeder-height;
-    margin-bottom: 12rem;
+    padding-bottom: 10rem;
+    min-height: 80vh;
     .main-title{
         position: relative;
         height: 4.1rem;
@@ -135,53 +148,68 @@ main{
         font-size: 1.2rem;
         font-weight: 100;
     }
-    .main-content{
-        @include flex();
-        justify-content: space-around;
-        .content-box{
+    .main-content-box{
+        height: 100%;
+        .main-content{
+            max-width: 768px;
+            min-width: 320px;
+            margin-top: 2rem;
+            padding-left: 10vw;
+            display: grid;
+            grid-template-columns: repeat(3, 20vw);
+            grid-template-rows: repeat(6, 20vw);
+            grid-row-gap: 10vw;
+            grid-column-gap: 10vw;
+            @media screen and (min-width: 768px) {
+                padding-left: 105px;
+                display: grid;
+                grid-template-columns: repeat(3, 154px);
+                grid-template-rows: repeat(6, 154px);
+                grid-row-gap: 90px;
+                grid-column-gap: 48px;
+            }
+        .item{
             display: inline-block;
-            margin-top: 1rem;
-            .content-photo{
-                position: relative;
-                width: 20vw;
-                height: 20vw;
-                border: 3px solid #ffffff;
-                p{
-                    width: 100%;
-                    position: absolute;
-                    @include flex();
-                    justify-content: center;
-                    &:nth-child(1){
-                        background: #f5c97b;
-                        height: 74%;
-                        font-size: 2vmax;
-                    }
-                    &:nth-child(2){
-                        bottom: 0;
-                        background: #83b09a;
-                        color: #ffffff;
-                        height: 26%;
-                        font-size: 1.3vmax;
-                        font-weight: 100;
-                    }
-                }
+            position: relative;
+            border: 3px solid #ffffff;
+            .identity{
+                width: 100%;
+                @include flex(center,center);
+                background: #f5c97b;
+                height: 74%;
+                font-size: 2vmax;
+            }
+            .number{
+                @extend .identity;
+                position: absolute;
+                bottom: 0;
+                background: #83b09a;
+                color: #ffffff;
+                height: 26%;
+                font-size: 1.3vmax;
+                font-weight: 100;
             }
             .content-hover{
+                width: 100%;
+                @include flex(center,center);
+                position: absolute;
+                bottom: -6vw;
                 opacity: 0;
-                @include flex();
-                justify-content: space-between;
                 margin-top: 1rem;
                 margin-right: -0.5px;
+                @media screen and (min-width: 768px) {
+                    bottom: -10vh;
+                }
                 img{
                     width: 4vw;
                 }
             }
             &:hover .content-hover{
-                opacity: 1;
+                opacity: 1; 
             }
         }
     }
-
+}
 }
 
 footer{

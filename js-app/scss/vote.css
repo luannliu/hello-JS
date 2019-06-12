@@ -1,0 +1,252 @@
+html {
+  font-size: 62.5%;
+  background: #f0f0f0;
+}
+
+body, header, main, footer {
+  max-width: 768px;
+  min-width: 320px;
+  margin: 0 auto;
+  background: #29bde0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+img {
+  display: inline-block;
+  height: 70%;
+}
+
+span {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 4.4rem;
+  background-color: inherit;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  line-height: 4.4rem;
+  font-weight: 400;
+  z-index: 2;
+  background: #29bde0;
+  border-bottom: 1.1px solid #ffffff #74d4eb;
+}
+
+header #back {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: inherit;
+  border-radius: 0;
+  border-top: 0.2rem solid #fff;
+  border-left: 0.2rem solid #fff;
+  transform: rotate(-45deg);
+  margin-left: 1.1rem;
+}
+
+header p {
+  margin-top: 0.5rem;
+}
+
+header #close {
+  display: inline-block;
+  margin-right: 1rem;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  line-height: 0;
+  font-size: 0;
+  vertical-align: middle;
+  -webkit-transform: rotate(45deg);
+}
+
+header #close::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  -webkit-transform: rotate(-90deg);
+}
+
+main {
+  margin-top: 4.4rem;
+  padding-bottom: 10rem;
+  min-height: 80vh;
+}
+
+main .main-title {
+  position: relative;
+  height: 4.1rem;
+  padding-left: 2.4rem;
+  background: #b9e9f5;
+  font-size: 1.4rem;
+  line-height: 4.1rem;
+}
+
+main .main-title::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 1.1rem 0.6rem 1.1rem 0.6rem;
+  border-color: #b9e9f5 transparent transparent transparent;
+}
+
+main .main-title audio {
+  height: 26px;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  top: 0.7rem;
+  right: 0rem;
+  transform: rotate(180deg);
+}
+
+main .main-title img {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.5rem;
+}
+
+main .main-tip {
+  margin-top: 1.5rem;
+  margin-left: 3.2rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+main .main-content-box {
+  height: 100%;
+}
+
+main .main-content-box .main-content {
+  max-width: 768px;
+  min-width: 320px;
+  margin-top: 2rem;
+  padding-left: 10vw;
+  display: grid;
+  grid-template-columns: repeat(3, 20vw);
+  grid-template-rows: repeat(6, 20vw);
+  grid-row-gap: 10vw;
+  grid-column-gap: 10vw;
+}
+
+@media screen and (min-width: 768px) {
+  main .main-content-box .main-content {
+    padding-left: 105px;
+    display: grid;
+    grid-template-columns: repeat(3, 154px);
+    grid-template-rows: repeat(6, 154px);
+    grid-row-gap: 90px;
+    grid-column-gap: 48px;
+  }
+}
+
+main .main-content-box .main-content .item {
+  display: inline-block;
+  position: relative;
+  border: 3px solid #ffffff;
+}
+
+main .main-content-box .main-content .item .identity, main .main-content-box .main-content .item .number {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5c97b;
+  height: 74%;
+  font-size: 2vmax;
+}
+
+main .main-content-box .main-content .item .number {
+  position: absolute;
+  bottom: 0;
+  background: #83b09a;
+  color: #ffffff;
+  height: 26%;
+  font-size: 1.3vmax;
+  font-weight: 100;
+}
+
+main .main-content-box .main-content .item .content-hover {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -6vw;
+  opacity: 0;
+  margin-top: 1rem;
+  margin-right: -0.5px;
+}
+
+@media screen and (min-width: 768px) {
+  main .main-content-box .main-content .item .content-hover {
+    bottom: -10vh;
+  }
+}
+
+main .main-content-box .main-content .item .content-hover img {
+  width: 4vw;
+}
+
+main .main-content-box .main-content .item:hover .content-hover {
+  opacity: 1;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 9.5rem;
+  padding-top: 0.5rem;
+  background: #29bde0;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+footer span {
+  position: absolute;
+  top: 0;
+  left: calc(calc(40% / 6) - 1.5px);
+  right: calc(calc(40% / 6) - 1.5px);
+  height: 1px;
+  background: #ffffff;
+  width: calc(100% - calc(40% / 3 ) + 3px);
+}
+
+footer a {
+  display: inline-block;
+  margin: 0 auto;
+  height: 4.4rem;
+  width: 24.5rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 100;
+  line-height: 4.4rem;
+  background: #fbb435;
+}

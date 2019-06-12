@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/*需要另外的样式来引用它*/
+html {
+  font-size: 62.5%;
+  letter-spacing: 1px;
+  background: #ffffff;
+}
+
+html, header, footer {
+  max-width: 768px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+body {
+  margin: 0 auto;
+  height: calc(100vh - 4.4rem);
+  background: #29bde0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+img, span {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 4.4rem;
+  background-color: inherit;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  line-height: 4.4rem;
+  font-weight: 600;
+  z-index: 2;
+  background: #29bde0;
+  border-bottom: 2px solid #74d4eb;
+}
+
+header #back {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: inherit;
+  border-radius: 0;
+  border-top: 0.2rem solid #fff;
+  border-left: 0.2rem solid #fff;
+  transform: rotate(-45deg);
+  margin-left: 1.1rem;
+}
+
+header #close {
+  display: inline-block;
+  margin-right: 1rem;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  line-height: 0;
+  font-size: 0;
+  vertical-align: middle;
+  -webkit-transform: rotate(45deg);
+}
+
+header #close::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  -webkit-transform: rotate(-90deg);
+}
+
+main {
+  min-height: 100%;
+}
+
+main .main-content {
+  padding-top: 20vh;
+}
+
+main .main-content .box {
+  position: relative;
+  padding: 14rem auto;
+  margin: 0 auto;
+  width: 23.2rem;
+  height: 32.8rem;
+  background-color: #ffedc5;
+  border-radius: 0;
+  border: 3px solid #ffffff;
+}
+
+main .main-content .box #check, main .main-content .box .view #view {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  zoom: 0.5;
+}
+
+main .main-content .box .view {
+  display: none;
+}
+
+main .main-content .box .view #view {
+  display: block;
+  margin-top: 4rem;
+}
+
+main .main-content .box .view #identity {
+  display: block;
+  font-size: 2rem;
+  color: #29bde0;
+  line-height: 38rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+main .main-content .box .number {
+  position: absolute;
+  top: -1.85rem;
+  left: 9.75rem;
+  width: 3.7rem;
+  height: 3.7rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 3px solid #ffedc5;
+  font-size: 2rem;
+  color: #f56b81;
+  line-height: 3.7rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+main .main-content-box {
+  background: #29bde0;
+  display: none;
+  padding-left: 10vw;
+}
+
+@media screen and (min-width: 768px) {
+  main .main-content-box {
+    padding-left: 96px;
+  }
+}
+
+main .main-content-box .content-box {
+  max-width: 768px;
+  min-width: 320px;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 20vw);
+  grid-template-rows: repeat(6, 20vw);
+  grid-row-gap: 10vw;
+  grid-column-gap: 10vw;
+}
+
+@media screen and (min-width: 768px) {
+  main .main-content-box .content-box {
+    display: grid;
+    grid-template-columns: repeat(3, 154px);
+    grid-template-rows: repeat(6, 154px);
+    grid-row-gap: 48px;
+    grid-column-gap: 48px;
+  }
+}
+
+main .main-content-box .content-box .item {
+  display: inline-block;
+  position: relative;
+  border: 3px solid #ffffff;
+}
+
+main .main-content-box .content-box .item .identity, main .main-content-box .content-box .item .num {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5c97b;
+  height: 74%;
+  font-size: 2vmax;
+}
+
+main .main-content-box .content-box .item .num {
+  position: absolute;
+  bottom: 0;
+  background: #83b09a;
+  color: #ffffff;
+  height: 26%;
+  font-size: 1.3vmax;
+  font-weight: 100;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6.5rem;
+  background-color: #29bde0;
+  border-radius: 0;
+  z-index: 2;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+footer button {
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  color: #ffffff;
+  line-height: 3rem;
+  font-weight: 400;
+  width: 80%;
+  height: 4.4rem;
+  background-color: #fab344;
+  border-radius: 0;
+}

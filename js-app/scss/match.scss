@@ -55,6 +55,11 @@ html{
     letter-spacing: 1px;
     background: #f0f0f0;
 }
+html,header,footer{
+    max-width: 768px;
+    min-width: 320px;
+    margin: 0 auto;
+}
 *{
     margin: 0;
     padding: 0;
@@ -91,11 +96,11 @@ header{
     }
     .help{
         margin-right: 1rem;
-        @include img(0.5,0.2)
+        @include img(0.45,0.2)
     }
 }
 main{
-    margin: 5.4rem 0.9rem auto 0.9rem;
+    margin: 5.4rem 1.8rem auto 1.8rem;
     .main-content{
         @include box(100%,25.1rem,#ffffff ,0);
         @include flex(space-between,center);
@@ -135,12 +140,15 @@ main{
                 }
             }
             .m-c-r-bottom{
-                @include box(100%,3rem,#fbfbfb,0);
-                @include font(1.3rem,#29bde0,3rem,400);
-                text-align: center;
-                border-top: $border #d9d9d9;
-                img{
-                    @include img(0.55,0 0 0 0.5rem);
+                button{
+                    @include box(100%,3rem,#fbfbfb,0);
+                    @include font(1.3rem,#29bde0,3rem,400);
+                    text-align: center;
+                    border-top: $border #d9d9d9;
+                    img{
+                        @include img(0.55,0 0 0 0.5rem);
+                    }
+                    
                 }
             }    
         }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>结果页</title>
+    <link rel="stylesheet" href="../scss/result.css" type="text/css">
+</head>
+<body>
+    <header>
+        <a href="../app1/app1.html"><img src="../img/result/home.png" alt=""></a>
+        <span>游戏结果</span>
+        <a><img src="../img/result/feedback.png" alt=""></a>
+    </header>
+    <main>
+        <div class="main-top">
+            <img class="victory" src="../img/result/kv.png" alt="">
+            <!-- <p>太棒了!你知道么？在捉鬼游戏中只有20%的卧底取得游戏最终的胜利哦！</p> -->
+            <br>
+            <br>
+            <div class="result">
+                <p> 剩余玩家： </p>
+                <div class="line">     
+                    <span>杀&emsp;手 <span id="killer"></span> 人</span>
+                    <span>平&emsp;民 <span id="civilian"></span> 人</span>
+                </div>
+                <!-- <p>卧底词汇：爱新觉罗</p>
+                <p>水民词汇：努尔哈赤</p> -->
+            </div>
+        </div>
+        <div class="main-bottom">
+            <div class="details">
+                <div class="detail-box">
+                    <div class="detail">
+                        <span class="date">第 <span class="day">1</span> 天</span>
+                        <!-- <span class="time">0小时07分</span> -->
+                    </div>
+                    <p>晚上： <span class="killed"></span>号被杀手杀死，其身份是<span class="identity1"></span> </p>
+                    <p>白天： <span class="voted"></span>号被投票投死，其身份是<span class="identity2"></span> </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button class="left">再来一局</button>
+        <button class="right">上传并分享</button>
+    </footer>
+    <script src="../../jquery-3.4.1.js"></script> 
+    <script src="../js/result.js"></script>
+</body>
+</html>

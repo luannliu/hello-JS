@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>投票</title>
+    <link rel="stylesheet" href="../scss/process.css" type="text/css">
+</head>
+<body>
+    <header>
+        <button id="back"></button>
+        <p>法官日记</p>
+        <button id="close"></button>
+    </header>
+    <main>
+        <div class="title">
+            <div class="day-title">
+                <span class="day">第一天</span>
+                <div class="down"></div>
+            </div>
+        </div>
+        <div class="day-content">
+            <div class="allday">
+                <span id="death-tips"></span>
+                <div class="night">
+                    <div id="killer" class="bubble">杀手杀人
+                        <img class="moon" src="../img/process/moon.png" alt="">
+                    </div>
+                    <!-- <div class="bubble">警察验人</div>
+                    <div class="bubble">猎枪带人</div>
+                    <div class="bubble">女巫救人</div> -->
+                </div>
+                <div class="day">
+                    <div id="dead" class="bubble">亡灵发表遗言
+                        <img class="sun" src="../img/process/sun.png" alt="">
+                    </div>
+                    <div id="speech" class="bubble">玩家依次发言</div>
+                    <div id="vote" class="bubble">全民投票</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button class="over">结束游戏</button>
+        <button class="diary">法官日志</button>
+    </footer>
+    <script src ="../../state-machine.min.js"></script> 
+    <script src ="../../num-tochinese.js"></script> 
+    <script src="../../jquery-3.4.1.js"></script> 
+    <script src="../js/process.js"></script>
+</body>
+</html>

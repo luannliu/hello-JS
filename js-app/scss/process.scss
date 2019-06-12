@@ -1,0 +1,259 @@
+html{
+    font-size: 62.5%;
+    letter-spacing: 2px;
+    background: #f0f0f0;
+}
+html,header,footer{
+    max-width: 768px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+img{
+    display: inline-block;
+    height: 70%;
+}
+span{
+    display: inline-block;
+}
+a{
+    text-decoration: none;
+}
+
+@mixin flex($justify,$align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+  } 
+@mixin flex-c($justify,$align) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    align-items: $align;
+  }
+@mixin bg($width,$height,$url) {
+    width: $width;
+    height: $height;
+    background: $url no-repeat center;
+}
+@mixin img($zoom,$margin) {
+    margin: $margin;
+    zoom: $zoom;
+}
+@mixin position($position,$side,$sidevalue) {
+    position: $position;
+    #{$side}: $sidevalue;
+  }
+@mixin font($fz,$cl,$lh,$fw){
+    font-size: $fz;
+    color: $cl;
+    line-height: $lh;
+    font-weight: $fw;
+  }
+@mixin box($width,$height,$bg,$radius){
+    width: $width;
+    height: $height;
+    background-color: $bg;
+    border-radius: $radius; 
+}
+$haeder-height:4.4rem;
+$border: 1px solid;      
+
+header{
+    @include box(100%,$haeder-height,inherit,0);
+    @include position(fixed,top ,0);
+    @include flex(space-between,center);
+    @include font(1.5rem,#ffffff,4.4rem,400);
+    z-index: 2;
+    background: #29bde0;
+    border-bottom: $border #74d4eb;
+    #back{
+        @include box(1.2rem,1.2rem,inherit,0);
+        border-top: 0.2rem solid #fff;
+        border-left: 0.2rem solid #fff;    
+        transform: rotate(-45deg);
+        margin-left: 1.1rem;
+    }
+    p{
+        margin-top: 0.5rem;
+    }
+    #close{
+        display: inline-block;
+        margin-right: 1rem;
+        width: 20px;
+        height: 2px;
+        background: #ffffff;
+        line-height: 0;
+        font-size: 0;
+        vertical-align: middle;
+        -webkit-transform: rotate(45deg);
+        &::after{
+            content: "";
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #ffffff;
+            -webkit-transform: rotate(-90deg);
+        }
+    }
+}
+main{
+    margin: $haeder-height+1.8rem 1.1rem 8rem 1.1rem;
+    background: #f7f7f7;
+    .title{
+        .day-title{
+            position: relative;
+            text-align: center;
+            border: $border #c9c9c9;
+            border-bottom:0 ;
+            @include box(calc(100%-2px),4.3rem,inherit,0);
+            @include font(1.5rem,#29bde0,4.3rem,700);
+            .down{
+                @include position(absolute,top,1.4rem);
+                right: 1rem;
+                @include box(1rem,1rem,inherit,0);
+                border-bottom: 2px solid #29bde0;
+                border-left: 2px solid #29bde0;    
+                transform: rotate(-45deg);
+                display: none;
+            }
+        }
+    }
+    .day-content{
+        border: $border #c9c9c9;
+        display: flex;
+        justify-content: center;
+        align-content: space-between;
+        .allday{
+            position: relative;
+            left: 2rem;
+            width: 80%;
+            &::after{
+                content: "";
+                @include position(absolute,left,-2px);
+                top: 0;
+                @include box(5px,2px,#c9c9c9,0);
+                -webkit-border-radius:0px  0px 100%  100%;
+            }
+            #death-tips{
+                padding-left: 1rem; 
+                @include position(absolute,left,2rem);
+                @include font(1rem,black,3.8rem,700);
+                display: none;
+            }
+            .night{
+                display: inline-block;
+                padding-top: 3rem;
+                width: calc(100% - 2rem);
+                border-left: 1.5px solid #c9c9c9;
+                .bubble{
+                    position: relative;
+                    text-align: center;
+                    margin: 2rem auto 2rem 2.8rem;
+                    @include box(85%,3.8rem,#24a7c6,1px);
+                    @include font(1.5rem,#fff,3.8rem,100);
+                    &::after{
+                        content: "";
+                        @include position(absolute,left,-19px);
+                        top: 1rem;
+                        width: 0px;
+                        height: 0px;
+                        border-color: transparent #24a7c6 transparent transparent;
+                        border-style: solid;
+                        border-width: 6px 10px 6px 10px;
+                    }
+                    .moon{
+                        @include position(absolute,left,-4.2rem);
+                        top: 0.3rem;
+                        background: #f7f7f7;
+                    }
+                }
+                
+                .bubble-blue{
+                    position: relative;
+                    text-align: center;
+                    margin: 2rem auto 2rem 2.8rem;
+                    @include box(85%,3.8rem,#24a7c6,1px);
+                    @include font(1.5rem,#fff,3.8rem,100);
+                    &::after{
+                        content: "";
+                        @include position(absolute,left,-19px);
+                        top: 1rem;
+                        width: 0px;
+                        height: 0px;
+                        border-color: transparent #24a7c6 transparent transparent;
+                        border-style: solid;
+                        border-width: 6px 10px 6px 10px;
+                    }
+                    .moon{
+                        @include position(absolute,left,-4.2rem);
+                        top: 0.3rem;
+                        background: #f7f7f7;
+                    }
+                }
+                .bubble-green{
+                    position: relative;
+                    text-align: center;
+                    margin: 2rem auto 2rem 2.8rem;
+                    @include box(85%,3.8rem,#83b09a,1px);
+                    @include font(1.5rem,#fff,3.8rem,100);
+                    &::after{
+                        content: "";
+                        @include position(absolute,left,-2rem);
+                        top: 1rem;
+                        width: 0px;
+                        height: 0px;
+                        border-color: transparent  #83b09a  transparent transparent;
+                        border-style: solid;
+                        border-width: 6px 10px 6px 10px;
+                    }
+                    .moon{
+                        @include position(absolute,left,-4.2rem);
+                        top: 0.3rem;
+                        background: #f7f7f7;
+                    }
+                }
+            }
+            .day{
+                @extend .night ;
+                padding-top: 0;
+                .sun{
+                    @extend .moon ;
+                }
+            }
+        }
+    }
+}
+
+
+footer{
+    width: 100%;
+    height: 6.5rem;
+    background: rgba($color: #99dff0, $alpha: 0.8);
+    padding-top: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    @include flex(space-around,center); 
+    .over{
+        height: 4.3rem;
+        width: 15.5rem;
+        border-radius: 5px;
+        font-size: 2rem;
+        font-weight: 100;
+        letter-spacing: 2px;
+        color: #ffffff;
+        background: #fbb435;
+    }
+    .diary{
+        @extend .over;
+    }
+}

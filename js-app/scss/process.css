@@ -170,6 +170,7 @@ main .day-content .allday .night, main .day-content .allday .day {
 main .day-content .allday .night .bubble, main .day-content .allday .day .bubble {
   position: relative;
   text-align: center;
+  cursor: pointer;
   margin: 2rem auto 2rem 2.8rem;
   width: 85%;
   height: 3.8rem;

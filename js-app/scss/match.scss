@@ -200,6 +200,8 @@ main{
                     }
                 }
                 input[type=range]{
+                    cursor: pointer;
+                    outline: none;
                     -webkit-appearance: none;
                     width: 80%;
                     background: #fab344;

@@ -2,7 +2,6 @@
 html{
     font-size: 62.5%;
     letter-spacing: 1px;
-    background: #74d4eb;
 }
 body,header,main,footer{
     max-width: 768px;
@@ -72,43 +71,44 @@ header{
 }
 
 main{
-    margin-top: $haeder-height;
-    margin-bottom: 6rem;
+    min-height: calc(100vh - 4.4rem - 6.5rem);
     background: #29bde0;
-    @include flexc();
     .main-top{
-        img{
-            margin-top: 1.2rem;
-            margin-bottom: 1.1rem;
-        }
-        @include flexc();
-        margin: auto 4rem 1rem 3.8rem;
-        p:nth-of-type(1){
-            color: #ffc865;
-            font-size: 1.8rem;
-        }
-        .result{
+        max-width: 768px;
+        min-width: 320px;
+        margin-top: $haeder-height;
+        .main-top-content{
             width: 100%;
-            text-align: left;
-            font-weight: 100;
-            p:nth-child(1){
-                color: #ffffff;
-                font-size: 1.38rem;
-                line-height: 2.4rem;
+            img{
+                margin-top: 1.2rem;
+                margin-bottom: 1.1rem;
             }
-            p{
-                @extend p:nth-child(1);
+            @include flexc();
+            p:nth-of-type(1){
+                color: #ffc865;
+                font-size: 1.8rem;
             }
-            span{
-                @extend p:nth-child(1);
-            }
-            .line{
-                @include flex();
-                justify-content: space-between;
-            }       
-        }
+            .result{
+                text-align: left;
+                font-weight: 100;
+                p:nth-child(1){
+                    color: #ffffff;
+                    font-size: 1.38rem;
+                    line-height: 2.4rem;
+                }
+                p{
+                    @extend p:nth-child(1);
+                }
+                span{
+                    @extend p:nth-child(1);
+                }
+                .line{
+                    @include flex();
+                    justify-content: space-between;
+                }       
+            }}
     }
-    .main-bottom{
+    .main-middle{
         width: 100%;
         background: #ffffff;
         .details{
@@ -138,6 +138,10 @@ main{
                 }
             }
         }
+    }
+    .main-bottom{
+        height: calc(100vh - 4.4rem - 7rem - 4.8rem - 16rem - 8.5rem);
+        background: #74d4eb;
     }
 }
 

@@ -241,6 +241,8 @@ main .main-setting .m-s-number .range .button-add::after {
 }
 
 main .main-setting .m-s-number .range input[type=range] {
+  cursor: pointer;
+  outline: none;
   -webkit-appearance: none;
   width: 80%;
   background: #fab344;

@@ -1,12 +1,12 @@
 //获取上一个页面的参数数据
 var arr = JSON.parse(sessionStorage.getItem('arr'));
+var fromWhere = sessionStorage.getItem('fromWhere');
 // console.log(arr,"arr");
-
+// console.log(fromWhere);
 //定义参数
 var parity = 1  // 判断奇偶性
 var order = 0; //代表顺序号码传递
 // 定义步骤及页面初始值
-var fromWhere = '';
 var step = 0;
 var day = 1;
 var deads=[];
@@ -33,6 +33,30 @@ for (i = 0; i < arr.length ; i++) {
         all.push(obj);
     }
     
+if(fromWhere === "点击日志" ){
+    $(".box").hide();
+    $(".main-content-box").show();
+    $(function(){
+        $("header span").html("法官日志");
+        $("button#next").html("继续游戏");
+        // 定义html内玩家信息盒子
+        var repeat = $(".content-box").html();
+        // 改变html内初始玩家信息盒子
+        $(".identity").eq(0).html(arr[0]);
+        $(".num").eq(0).text(1 + "号"); 
+        // 利用循环更改html
+        for (var i=1,len=arr.length; i < len ; i++){
+            $(".content-box").append(repeat); 
+            // 更改添加后的html玩家信息盒子
+            $(".identity").eq(i).html(arr[i]);
+            $(".num").eq(i).text(i + 1 + "号"); 
+        }
+    })
+    $("#next").click( function () {
+        window.location.href="../html/process.html";
+    })
+}
+
 //返回按钮点击跳转
 $("#back").click (function () {
     window.location.href="../html/match.html";

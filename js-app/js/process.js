@@ -13,54 +13,55 @@ var deads = JSON.parse(sessionStorage.getItem('deads'));//被杀
 var vote = JSON.parse(sessionStorage.getItem('vote'));//被投
 // 获取上一个投票页面的参数数据
 
-// 剩余杀手人数
-var k=0
-// 剩余平民人数
-var c=0
 // 为存活玩家定义数组
 var live=[];
 // 死亡信息展示
 var fromWhere = sessionStorage.getItem('fromWhere');
 // console.log(fromWhere,"fromWhere"); 
 
-// 根据玩家人数判断游戏是否结束
-for (b = 0; b < all.length; b++) {
-    if (all[b].death == false) {
-        live.push(all[b]);
-    }
-}
-// console.log(live,"live");
-for(i=0;i<live.length;i++){
-    if(live[i].name == "杀手"){
-        k++;
-    }else{
-        c++;
-    }
-}
-console.log(k,"k",c,"c");
+// // 剩余杀手人数
+// var k=0
+// // 剩余平民人数
+// var c=0
+// // 根据玩家人数判断游戏是否结束
+// for (b = 0; b < all.length; b++) {
+//     if (all[b].death == false) {
+//         live.push(all[b]);
+//     }
+// }
+// // console.log(live,"live");
+// for(i=0;i<live.length;i++){
+//     if(live[i].name == "杀手"){
+//         k++;
+//     }else{
+//         c++;
+//     }
+// }
+// // console.log(k,"k",c,"c");
 
-if((fromWhere === "点击投票" && k == c - 1)||k == c){
-    result="kv";
-    sessionStorage.setItem("k", k);
-    sessionStorage.setItem("c", c);
-    sessionStorage.setItem("vote", JSON.stringify(vote));
-    sessionStorage.setItem("deads", JSON.stringify(deads));
-    sessionStorage.setItem("result", result);
-    sessionStorage.setItem("all", JSON.stringify(all));
-    window.location.href="../html/result.html";
-}else if(k==0) {
-    result="cv";
-    sessionStorage.setItem("k", k);
-    sessionStorage.setItem("c", c);
-    sessionStorage.setItem("vote", JSON.stringify(vote));
-    sessionStorage.setItem("deads", JSON.stringify(deads));
-    sessionStorage.setItem("result", result);
-    sessionStorage.setItem("all", JSON.stringify(all));
-    window.location.href="../html/result.html";
-}else{
+// if((fromWhere === "点击投票" && k == c - 1)||k == c){
+//     result="kv";
+//     sessionStorage.setItem("k", k);
+//     sessionStorage.setItem("c", c);
+//     sessionStorage.setItem("vote", JSON.stringify(vote));
+//     sessionStorage.setItem("deads", JSON.stringify(deads));
+//     sessionStorage.setItem("result", result);
+//     sessionStorage.setItem("all", JSON.stringify(all));
+//     window.location.href="../html/result.html";
+// }else if(k==0) {
+//     result="cv";
+//     sessionStorage.setItem("k", k);
+//     sessionStorage.setItem("c", c);
+//     sessionStorage.setItem("vote", JSON.stringify(vote));
+//     sessionStorage.setItem("deads", JSON.stringify(deads));
+//     sessionStorage.setItem("result", result);
+//     sessionStorage.setItem("all", JSON.stringify(all));
+//     window.location.href="../html/result.html";
+// }
+// else{
     if(fromWhere === "点击杀人"){
         var dead = sessionStorage.getItem('dead');//被杀
-        console.log(dead,"dead");
+        // console.log(dead,"dead");
         $("#death-tips").css("display","block");
         $('#death-tips').html(dead +'号被杀手杀死,真实身份是平民');
         $('#killer').addClass("bubble-green");
@@ -95,7 +96,7 @@ if((fromWhere === "点击投票" && k == c - 1)||k == c){
             $('.bubble').eq(j).addClass("bubble-green"); 
         }
     }
-}
+// }
 
 
 $("#killer").one('click',function(obj){
@@ -179,21 +180,21 @@ $("#vote").one('click',function(obj){
 });
 
 
-//定义点击跳转函数
-// $("#back").click(function () {
-//     window.location.href="../html/match.html";
-// })
-// $("#close").click(function () {
-//     window.location.href="../html/home.html";
-// })
+// 定义点击跳转函数
+$("#back").click(function () {
+    window.location.href="../html/match.html";
+})
+$("#close").click(function () {
+    window.location.href="../html/home.html";
+})
 
-// $(".over").click(function () {
-//     window.location.href="../html/home.html";
-// })
+$(".over").click(function () {
+    window.location.href="../html/home.html";
+})
 
-// $(".diary").click(function () {
-//     var fromWhere = '点击日志'
-//     // 存储玩家数据
-//     sessionStorage.setItem("fromWhere", fromWhere);
-//     window.location.href="../html/vote.html";
-// })
+$(".diary").click(function () {
+    var fromWhere = '点击日志'
+    // 存储玩家数据
+    sessionStorage.setItem("fromWhere", fromWhere);
+    window.location.href="../html/identity.html";
+})

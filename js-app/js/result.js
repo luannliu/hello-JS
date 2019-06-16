@@ -42,7 +42,6 @@ for(i=0;i<day;i++){
     if(i<day-1){
         $(".detail-box").append(a);
     }
-    console.log(i);
 }
 
 

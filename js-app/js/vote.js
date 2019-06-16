@@ -37,10 +37,26 @@ $(function(){
         }
     }
 })
-// console.log(all,"all");
-// console.log(live,"live");
 
-
+// 定义音乐暂停及播放
+var m = 0;
+var audio = $("audio")[0];
+$(".audio").click(function(){
+    var s = m % 2;
+    if(s!=0){
+        //如果已停止则播放音频并更换图标
+        $(".play").css("opacity","0");
+        $(".pause").css("opacity","1");
+        audio.play();
+    }else if (s==0) {
+        //如果已停止重新加载音频并关闭音频和更换d图标
+        $(".pause").css("opacity","0");
+        $(".play").css("opacity","1");
+        audio.pause();
+    }
+    m++;
+    // console.log(m);
+})
 $(document).ready(function(){
     //判断三个页面点击进入后改变文本的内容并绑定点击事件
     if (fromWhere === '点击杀人') { 
@@ -77,7 +93,7 @@ $(document).ready(function(){
     } else if (fromWhere === "点击投票") { 
         //当前是投票页面改变文字内容
         $('#header-title').text('全民投票');
-        $('.main-title p').html('请投票');
+        $('.main-title p').text('请投票');
         $('.main-tip').html('点击下方玩家头像，投死谁');
         $('#start').html('确定');
         //给身份添加按钮事件
@@ -115,10 +131,10 @@ $(document).ready(function(){
 
 //定义点击跳转函数
 $("#back").click(function () {
-    window.location.href="../html/identity.html";
+    window.location.href="../html/match.html";
 })
 $("#close").click(function () {
-    window.location.href="../html/match.html";
+    window.location.href="../html/home.html";
 })
 
 $("#start").click(function(){
@@ -132,18 +148,70 @@ $("#start").click(function(){
         alert('一定要杀死一个人哦');
         window.location.href="../html/vote.html";
     }else{
+        // 将选中的人添加进数组
         if(fromWhere === "点击杀人"){
             deads.push(all[dead-1]);
-            sessionStorage.setItem("deads", JSON.stringify(deads));
-            console.log(deads,"deads");
+            // console.log(deads,"deads");
         }else if(fromWhere === "点击投票") {
             vote.push(all[voted-1]);
-            sessionStorage.setItem("vote", JSON.stringify(vote));
-            console.log(vote,"vote");
+            // console.log(vote,"vote");
         }
-        sessionStorage.setItem("all", JSON.stringify(all));
-        sessionStorage.setItem("live", JSON.stringify(live));
-        sessionStorage.setItem("arr", JSON.stringify(arr)); 
-        window.location.href = "../html/process.html";
+        // 定义剩余玩家数组
+        var alive=[];
+        for (b = 0; b < live.length; b++) {
+            if (live[b].death == false) {
+                alive.push(live[b]);
+            }
+        }
+        // console.log(alive,"alive");
+        // 剩余杀手人数
+        var k=0
+        // 剩余平民人数
+        var c=0
+        for(i=0;i<alive.length;i++){
+            if(alive[i].name == "杀手"){
+                k++;
+            }else{
+                c++;
+            }
+        }    
+        // console.log(k,"k",c,"c");
+        // 根据玩家人数判断游戏是否结束
+        if((fromWhere === "点击投票" && k == c - 1)||k == c){
+            result="kv";
+            sessionStorage.setItem("k", k);
+            sessionStorage.setItem("c", c);
+            sessionStorage.setItem("vote", JSON.stringify(vote));
+            sessionStorage.setItem("deads", JSON.stringify(deads));
+            sessionStorage.setItem("result", result);
+            sessionStorage.setItem("all", JSON.stringify(all));
+            window.location.href="../html/result.html";
+        }else if(k==0) {
+            result="cv";
+            sessionStorage.setItem("k", k);
+            sessionStorage.setItem("c", c);
+            sessionStorage.setItem("vote", JSON.stringify(vote));
+            sessionStorage.setItem("deads", JSON.stringify(deads));
+            sessionStorage.setItem("result", result);
+            sessionStorage.setItem("all", JSON.stringify(all));
+            window.location.href="../html/result.html";
+        }else if(fromWhere === "点击杀人"){
+            sessionStorage.setItem("all", JSON.stringify(all));
+            sessionStorage.setItem("live", JSON.stringify(live));
+            sessionStorage.setItem("arr", JSON.stringify(arr)); 
+            sessionStorage.setItem("deads", JSON.stringify(deads));
+            window.location.href = "../html/process.html";
+        }else if(fromWhere === "点击投票") {
+            sessionStorage.setItem("all", JSON.stringify(all));
+            sessionStorage.setItem("live", JSON.stringify(live));
+            sessionStorage.setItem("arr", JSON.stringify(arr)); 
+            sessionStorage.setItem("vote", JSON.stringify(vote));
+            window.location.href = "../html/process.html";
+        }
     }
 })
+
+    
+
+
+

@@ -158,6 +158,7 @@ main{
                 .bubble{
                     position: relative;
                     text-align: center;
+                    cursor: pointer;
                     margin: 2rem auto 2rem 2.8rem;
                     @include box(85%,3.8rem,#24a7c6,1px);
                     @include font(1.5rem,#fff,3.8rem,100);

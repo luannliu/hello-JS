@@ -14,6 +14,7 @@ var set = document.getElementById("set");
 var killer = document.getElementById("numberone");
 var civilian = document.getElementById("numbertwo");
 
+var fromWhere = '';
 //定义点击跳转函数
 back.onclick = function () {
     window.location.href="../html/home.html";
@@ -112,6 +113,7 @@ next.onclick = function () {
     }else if (killer.innerHTML === "?") {
         confirm("请点击设置");
     }else{
+        sessionStorage.setItem("fromWhere", fromWhere);
         window.location.href="../html/identity.html";
         shuffle();
     }

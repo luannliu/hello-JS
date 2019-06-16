@@ -1,8 +1,8 @@
 var k = sessionStorage.getItem("k");
 var c = sessionStorage.getItem("c");
-// console.log(k,"k",c,"c");/
+console.log(k,"k",c,"c");
 var result = sessionStorage.getItem("result");
-// console.log(result,"result");
+console.log(result,"result");
 var deads = JSON.parse(sessionStorage.getItem('deads'));//被杀数组
 var vote = JSON.parse(sessionStorage.getItem('vote'));//被投数组
 // console.log(vote,"vote");
@@ -11,10 +11,12 @@ var all = JSON.parse(sessionStorage.getItem('all'));
 // console.log(all,"all");
 
 // 根据结果替换奖杯图片
-if(result="kv"){
-    $(".victory").src="../img/result/kv.png";
-}else if(result="cv"){
-    $(".victory").src="../img/result/cv.png";
+if(result=="kv"){
+    $(".victory").attr("src", "../img/result/kv.png");
+    console.log(result,"result");
+}else if(result=="cv"){
+    $(".victory").attr("src", "../img/result/cv.png");
+    console.log(result,"result");
 }
 // 替换剩余玩家人数
 $("#killer").text(k);

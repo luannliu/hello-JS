@@ -37,31 +37,73 @@
     -o-#{$property}:$val;
     -ms-#{$property}:$val;
     }
-    /*需要另外的样式来引用它*/
-    // .A{
-    //   @include rounded(border-radius,30px);
-    // }
   $border: 1px solid;
   $box-shadow: #e4e4e4 0px 0px 10px;
-      // box-shadow: #999999 0px 0px 10px;
-  
   
 html  {
     font-size: 62.5%;
+    height: 100%;
 }
 body{
-    width: 100%;
-    height: 100%;
-    background-color: rgb(252,153,5);
+    background-image: url(../img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
+    outline: none;
 }
 button{
     border: none;
     outline: none;
     cursor: pointer;
-    transform: scale(0.55);
+    // transform: scale(0.55);
     background: transparent;
+}
+input{
+    border: none;
+    height: 40px;
+}
+
+main{
+  @include flex(center,center);
+  .login-box{
+    margin-top: 100px;
+    padding: 20px 10px;
+    @include box(320px,250px,#dedede,2px);
+    @include flex-c(space-around,center);
+    p{
+      @include font(20px,#29bde0,20px,700);
+      text-align: center;
+    }
+    .name{
+      position: relative;
+      margin:0.5rem;
+      padding: 1rem;
+      @include box(280px,40px,#fff,0);
+      img{
+        padding-right: 1rem;
+        border-right: $border #e4e4e4; 
+      }
+      input{
+        margin-left: 1rem;
+        @include position(absolute,top,0);
+      }
+    }
+    .password{
+      @extend .name;
+      img{
+        padding-left: 0.2rem;
+      }
+    }
+    .caution{
+      @include font(1rem,red,3rem,700);
+    }
+    button{
+      @include box(280px,40px,#29bde0,0);
+      @include font(1.4rem,#fff,3rem,400);
+    }
+  }
 }

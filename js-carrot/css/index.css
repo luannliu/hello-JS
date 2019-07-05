@@ -1,0 +1,99 @@
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  background-image: url(../img/bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+input {
+  border: none;
+  height: 40px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .login-box {
+  margin-top: 100px;
+  padding: 20px 10px;
+  width: 320px;
+  height: 250px;
+  background-color: #dedede;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main .login-box p {
+  font-size: 20px;
+  color: #29bde0;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+main .login-box .name, main .login-box .password {
+  position: relative;
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 280px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 0;
+}
+
+main .login-box .name img, main .login-box .password img {
+  padding-right: 1rem;
+  border-right: 1px solid #e4e4e4;
+}
+
+main .login-box .name input, main .login-box .password input {
+  margin-left: 1rem;
+  position: absolute;
+  top: 0;
+}
+
+main .login-box .password img {
+  padding-left: 0.2rem;
+}
+
+main .login-box .caution {
+  font-size: 1rem;
+  color: red;
+  line-height: 3rem;
+  font-weight: 700;
+}
+
+main .login-box button {
+  width: 280px;
+  height: 40px;
+  background-color: #29bde0;
+  border-radius: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  line-height: 3rem;
+  font-weight: 400;
+}
